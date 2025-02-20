@@ -212,10 +212,11 @@ public class Dia3 {
                         System.out.print("Ingrese un número: ");
                         int x = sn.nextInt();
                         int revers = 0;
-                        for(; x != 0; x /=10){
+                        while(x != 0){
                             int digit = x % 10;
                             revers = revers * 10 + digit;
-                        }
+                            x/=10;
+                        }                        
                         System.out.println("El número al revés es: " + revers);
                     }
                     
@@ -252,66 +253,135 @@ public class Dia3 {
                     
                     case 18 -> {
                         System.out.println("Calcular el MCD (Máximo Común Divisor) de dos números dados");
+                        System.out.print("Ingrese el primer número: ");
+                        int num1 = sn.nextInt();
+                        System.out.print("Ingrese el segundo número: ");
+                        int num2 = sn.nextInt();
                         
+                        while (num2 != 0) {                            
+                            int temp = num2;
+                            num2 = num1 % num2;
+                            num1 = temp;
+                        }
+                        System.out.println("MCD = " + num1);
                     }
                     
                     case 19 -> {
                         System.out.println("Ingresar números hasta que el usuario lo desee y, al final, muestre la\n cantidad de números positivos, negativos y ceros ingresados");
+                        int positivo = 0, negativo = 0, cero = 0;
+                        int opc = -1;
                         
+                        while (opc != 2) {                            
+                            System.out.print("Ingrese un número: ");
+                            int num = sn.nextInt();
+                            
+                            if(num>0) positivo++;
+                            if(num<0) negativo++;
+                            else if(num == 0) cero ++;
+                            
+                            System.out.print("¿Desea continuar? [1 = Si / 2 = No] ");
+                            opc = sn.nextInt();
+                        }
+                        System.out.println("Los positivos son: " + positivo + " Los negativos son: " + negativo + " Los ceros son: " + cero);
                     }
                     
                     case 20 -> {
                         System.out.println("Ingresar números hasta que el usuario lo desee y, al final, muestre el\n número más grande y el más pequeño ingresado");
+                        int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+                        int opc2 = -1;
                         
+                        while (opc2 != 2) {                            
+                            System.out.print("Ingrese un número: ");
+                            int num = sn.nextInt();
+                            
+                            if(num > max) max = num;
+                            if(num < min) min = num;
+                            
+                            System.out.print("¿Desea continuar? [1 = Si / 2 = No] ");
+                            opc2 = sn.nextInt();
+                        }
+                        System.out.println("Número mayor = " + max + " Número menor = " + min);
                     }
                     
                     case 21 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
-                        
+                        System.out.println("Encontrar los números y la suma de todos los enteros\n entre 100 y 200 que sean divisibles por 9");
+                        int sum = 0;
+                        for (int i = 100; i <= 200; i++) {
+                            if (i % 9 == 0) {
+                                System.out.println(i);
+                                sum+=i;
+                            }
+                        }
+                        System.out.println("La suma total de los divisores de 9 es: " + sum);
                     }
                     
                     case 22 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número binario a decimal sin usar arreglos,\n funciones ni bucles while");
+                        System.out.println("Escribe el número binario: ");
+                        String bin = sn.next();
                         
+                        int decimal = 0;
+                        for (int i = bin.length() -1; i >= 0; i--) {
+                            if (bin.charAt(i) == '1') {
+                                decimal += Math.pow(2,(bin.length()-i-1));
+                            }
+                        }
+                        System.out.println("Decimal: " + decimal);
                     }
                     
                     case 23 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Verificar si un número es un Número Fuerte o no");
                         
+                        System.out.println("Escribe cualquier número: ");
+                        int numerito = sn.nextInt();
+                        int fuerte = 0;
+                        long factorial = 1;
+                        for (int i = 1; i <= numerito; ++i) {
+                            factorial *= i;
+                            fuerte+=factorial;
+                            System.out.println(fuerte);
+                            /*if(fuerte == numerito){
+                                System.out.println("Este es un número fuerte.");
+                                break;
+                            }else if(fuerte != numerito){
+                                System.out.println("Este no es un número fuerte");
+                                break;
+                            }*/
+                        }
                     }
                     
                     case 24 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número hexadecimal a decimal");
                         
                     }
                     
                     case 25 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número hexadecimal a octal");
                         
                     }
                     
                     case 26 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número hexadecimal a binario");
                         
                     }
                     
                     case 27 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número decimal a hexadecimal");
                         
                     }
                     
                     case 28 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número decimal a octal");
                         
                     }
                     
                     case 29 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número decimal a binario");
                         
                     }
                     
                     case 30 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número binario a octal");
                         
                     }
                     
