@@ -3,6 +3,22 @@ package dia3;
 import java.util.*;
 
 public class Dia3 {
+    
+    //Funcion ejercicio 24.
+    public static int convertHexaDeci(String hexadecimal){
+        final String DIGITOS = "0123456789ABCDEF";
+        hexadecimal = hexadecimal.toUpperCase();
+        
+        int decimal = 0;
+        for (int i = 0; i < hexadecimal.length(); i++) {
+            char caracter = hexadecimal.charAt(i);
+            int digit = DIGITOS.indexOf(caracter);
+            
+            decimal = 16 * decimal + digit;
+        }
+        return decimal;
+    }
+    
 
     public static void main(String[] args) {
         Scanner sn = new Scanner(System.in);
@@ -11,7 +27,7 @@ public class Dia3 {
         int opcion;
         
         while(!salir) {
-            System.out.println("1. Números naturales de 1 a n");
+            System.out.println("\n1. Números naturales de 1 a n");
             System.out.println("2. Números naturales en orden inverso");
             System.out.println("3. Tablas de multiplicar");
             System.out.println("4. Tablas de multiplicar orden inverso");
@@ -334,130 +350,316 @@ public class Dia3 {
                         
                         System.out.println("Escribe cualquier número: ");
                         int numerito = sn.nextInt();
-                        int fuerte = 0;
-                        long factorial = 1;
-                        for (int i = 1; i <= numerito; ++i) {
-                            factorial *= i;
-                            fuerte+=factorial;
-                            System.out.println(fuerte);
-                            /*if(fuerte == numerito){
-                                System.out.println("Este es un número fuerte.");
-                                break;
-                            }else if(fuerte != numerito){
-                                System.out.println("Este no es un número fuerte");
-                                break;
-                            }*/
+                        
+                        int fuerte = numerito;
+                        int sumaFactoriales = 0;
+                        while(numerito > 0){
+                           int digito  = numerito % 10;
+                           int factorial = 1;
+                           
+                            for (int i = 1; i <= digito; i++) {
+                                factorial*= i;
+                            }
+                            sumaFactoriales += factorial;
+                            numerito /= 10;
+                        }
+                        if(sumaFactoriales == fuerte){
+                            System.out.println("Este es un número fuerte.");
+                            break;
+                        }else {
+                            System.out.println("Este no es un número fuerte");
+                            break;
                         }
                     }
                     
                     case 24 -> {
                         System.out.println("Convertir un número hexadecimal a decimal");
-                        
+                        System.out.println("Escribe el hexadecimal: ");
+                        String hexadecimal = sn.next();
+                        System.out.println(convertHexaDeci(hexadecimal));
                     }
                     
                     case 25 -> {
                         System.out.println("Convertir un número hexadecimal a octal");
+                        System.out.print("Escribe el hexadecimal: ");
+                        String hexadecimal = sn.next(); 
                         
+                        int decimal = Integer.parseInt(hexadecimal, 16);
+                        String octal = Integer.toOctalString(decimal);
+                        System.out.println("El octal es: " + octal);
                     }
                     
                     case 26 -> {
                         System.out.println("Convertir un número hexadecimal a binario");
                         
+                        System.out.print("Escribe el hexadecimal: ");
+                        String hexadecimal = sn.next(); 
+                        
+                        int decimal = Integer.parseInt(hexadecimal, 16);
+                        String binario = Integer.toBinaryString(decimal);
+                        System.out.println("El número binario es: " + binario);
                     }
                     
                     case 27 -> {
                         System.out.println("Convertir un número decimal a hexadecimal");
+                        System.out.print("Escribe el Decimal: ");
+                        int decimal = sn.nextInt();
                         
+                        String hexadecimal = Integer.toHexString(decimal);
+                        System.out.println("El hexadecimal es: " + hexadecimal);
                     }
                     
                     case 28 -> {
                         System.out.println("Convertir un número decimal a octal");
+                        System.out.print("Escribe el Decimal: ");
+                        int decimal = sn.nextInt();
                         
+                        String octal = Integer.toOctalString(decimal);
+                        System.out.println("El octal es: " + octal);
                     }
                     
                     case 29 -> {
                         System.out.println("Convertir un número decimal a binario");
+                        System.out.print("Escribe el Decimal: ");
+                        int decimal = sn.nextInt();
                         
+                        String binario = Integer.toBinaryString(decimal);
+                        System.out.println("El binario es: " + binario);
                     }
                     
                     case 30 -> {
                         System.out.println("Convertir un número binario a octal");
+                        System.out.print("Escribe el binario: ");
+                        String binario = sn.next();
                         
+                        int decimal = Integer.parseInt(binario, 2);
+                        String octal = Integer.toOctalString(decimal);
+                        System.out.println("El Octal es: " + octal);
                     }
                     
                     case 31 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número binario a decimal");
+                        System.out.print("Escribe el binario: ");
+                        String binario = sn.next();
                         
+                        int decimal = Integer.parseInt(binario, 2);
+                        System.out.println("El decimal es: " + decimal);
                     }
                     
                     case 32 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número binario a hexadecimal");
+                        System.out.print("Escribe el binario: ");
+                        String binario = sn.next();
                         
+                        int hexadecimal = Integer.parseInt(binario, 2);
+                        String hexa = Integer.toHexString(hexadecimal);
+                        System.out.println("El Hexadecimal es: " + hexa);
                     }
                     
                     case 33 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número octal a binario");
+                        System.out.print("Escribe el octal: ");
+                        String octal = sn.next();
                         
+                        int oct = Integer.parseInt(octal, 8);
+                        String binario = Integer.toBinaryString(oct);
+                        System.out.println("El binario es: " + binario);
                     }
                     
                     case 34 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número octal a decimal");
+                        System.out.print("Escribe el octal: ");
+                        String octal = sn.next();
                         
+                        int decimal = Integer.parseInt(octal, 8);
+                        System.out.println("El decimal es: " + decimal);
                     }
                     
                     case 35 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Convertir un número octal a hexadecimal");
+                        System.out.print("Escribe el octal: ");
+                        String octal = sn.next();
                         
+                        int hexaDecimal = Integer.parseInt(octal, 8);
+                        String hexa = Integer.toHexString(hexaDecimal).toUpperCase();
+                        System.out.println("El decimal es: " + hexa);
                     }
                     
                     case 36 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Encontrar el complemento a 1 de un número en Java");
+                        System.out.println("Escriba un número: ");
+                        int numero = sn.nextInt();
                         
+                        int complemento = ~numero;
+                        System.out.println("El complemento a 1 del número es: " + complemento);
                     }
                     
                     case 37 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Encontrar el complemento a 2 de un número binario en Java");
+                        System.out.print("Escribe el binario: ");
+                        String binario = sn.nextLine();
                         
                     }
                     
                     case 38 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
-                        
+                        System.out.println("Imprimir la serie de Fibonacci hasta n términos");
+                        System.out.print("Introduce la cantidad de números que deseas ver de la serie de Fibonacci: ");
+                        int n = sn.nextInt();
+
+                        // Variables iniciales para la serie de Fibonacci
+                        int num1 = 0, num2 = 1;
+
+                        System.out.print("Serie de Fibonacci:\n");
+
+                        // Imprimir los primeros n términos de la serie de Fibonacci
+                        for (int i = 1; i <= n; ++i) {
+                            System.out.println(num1 + " ");
+                            int siguienteNumero = num1 + num2;  // Calcular el siguiente término
+                            num1 = num2;  // Actualizar num1
+                            num2 = siguienteNumero;  // Actualizar num2
+                        }
                     }
                     
                     case 39 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
+                        System.out.println("Verificar si un número es un Número Fuerte o no");
+                        System.out.println("Escribe cualquier número: ");
+                        int numerito = sn.nextInt();
                         
+                        int fuerte = numerito;
+                        int sumaFactoriales = 0;
+                        while(numerito > 0){
+                           int digito  = numerito % 10;
+                           int factorial = 1;
+                           
+                            for (int i = 1; i <= digito; i++) {
+                                factorial*= i;
+                            }
+                            sumaFactoriales += factorial;
+                            numerito /= 10;
+                        }
+                        if(sumaFactoriales == fuerte){
+                            System.out.println("Este es un número fuerte.");
+                            break;
+                        }else {
+                            System.out.println("Este no es un número fuerte");
+                            break;
+                        }
                     }
                     
                     case 40 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
-                        
+                        System.out.println("Imprimir todos los Números Fuertes del 1 al 100000");
+                        for (int i = 1; i <= 100000; i++) {
+                            int suma = 0;
+                            int temp = i;
+                            while (temp != 0) {
+                                int digito = temp % 10;
+                                int factorial = 1;
+                                for (int j = 1; j <= digito; j++) {
+                                    factorial *= j;  // Calcular el factorial del dígito
+                                }
+                                suma += factorial;  // Sumar el factorial del dígito
+                                temp /= 10;  // Eliminar el último dígito
+                            }
+                            if (suma == i) {
+                                System.out.println(i);  // Imprimir el número si es fuerte
+                            }
+                        }
                     }
                     
                     case 41 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
-                        
+                        System.out.println("Imprimir todos los Números Perfectos del 1 al 10000");
+                        for (int i = 1; i <= 10000; i++) {
+                            int suma = 0;
+                            // Encontrar y sumar los divisores propios de i
+                            for (int j = 1; j < i; j++) {
+                                if (i % j == 0) {
+                                    suma += j;
+                                }
+                            }
+                            // Verificar si la suma de los divisores es igual al número
+                            if (suma == i) {
+                                System.out.println(i);
+                            }
+                        }
                     }
                     
                     case 42 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
-                        
+                        System.out.println("Verificar si un número es un Número Perfecto o no");
+                        System.out.print("Introduce un número: ");
+                        int numero = sn.nextInt();
+                        int suma = 0;
+
+                        // Encontrar y sumar los divisores propios del número
+                        for (int i = 1; i < numero; i++) {
+                            if (numero % i == 0) {
+                                suma += i;
+                            }
+                        }
+                        // Verificar si la suma de los divisores es igual al número
+                        if (suma == numero) {
+                            System.out.println(numero + " es un Número Perfecto.");
+                        } else {
+                            System.out.println(numero + " no es un Número Perfecto.");
+                        }
                     }
                     
                     case 43 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
-                        
+                        System.out.println("Imprimir todos los Números de Armstrong entre 1 y 1000");
+                        for (int i = 1; i <= 1000; i++) {
+                            int numero = i;
+                            int suma = 0;
+                            int longitud = String.valueOf(numero).length(); // Encontrar la longitud del número
+
+                            // Calcular la suma de los dígitos elevados a la potencia del número de dígitos
+                            int temp = numero;
+                            while (temp != 0) {
+                                int digito = temp % 10;
+                                suma += Math.pow(digito, longitud);
+                                temp /= 10;
+                            }
+                            // Verificar si la suma es igual al número original
+                            if (suma == numero) {
+                                System.out.println(numero);
+                            }
+                        }
                     }
                     
                     case 44 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
-                        
+                        System.out.println("Verificar si un número es un Número de Armstrong o no");
+                        System.out.print("Introduce un número: ");
+                        int numero = sn.nextInt();
+
+                        int temp = numero;
+                        int suma = 0;
+                        int longitud = String.valueOf(numero).length();  // Encontrar la longitud del número
+
+                        // Calcular la suma de los dígitos elevados a la potencia del número de dígitos
+                        while (temp != 0) {
+                            int digito = temp % 10;
+                            suma += Math.pow(digito, longitud);
+                            temp /= 10;
+                        }
+                        // Verificar si la suma es igual al número original
+                        if (suma == numero) {
+                            System.out.println(numero + " es un Número de Armstrong.");
+                        } else {
+                            System.out.println(numero + " no es un Número de Armstrong.");
+                        }
                     }
                     
                     case 45 -> {
-                        System.out.println("Tablas de multiplicar en orden inverso");
-                        
+                        System.out.println("Imprimir los factores primos en Java");
+                        System.out.print("Introduce un número: ");
+                        int numero = sn.nextInt();
+                        System.out.print("Los factores primos de " + numero + " son: ");
+
+                        // Encontrar y imprimir los factores primos
+                        for (int i = 2; i <= numero; i++) {
+                            while (numero % i == 0) {
+                                System.out.print(i + " ");
+                                numero /= i;
+                            }
+                        }
                     }
                     
                     case 46 -> {
