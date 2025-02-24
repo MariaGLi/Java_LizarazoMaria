@@ -16,9 +16,11 @@ public class Dia5 {
     static List<Departamentos> departamento = new ArrayList<>();
     static List<Pabellon> pabelloncito = new ArrayList<>();
     static List<Pacientes> pacientico = new ArrayList<>();
+    static int sigIdEmpleado = 4; //Id asignado en continuación
+    static int sigIdPaciente = 4;
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sn = new Scanner(System.in);
         
         // Datos prueba.
         hospitales.add(new Hospital(1, "ESE Hospital Regional Norte", "40%"));
@@ -47,11 +49,13 @@ public class Dia5 {
             System.out.println("2. Ver el personal.");
             System.out.println("3. Ver los departamentos.");
             System.out.println("4. Ver los pabellones.");
-            System.out.println("5. Ver los pacientes.");          
+            System.out.println("5. Ver los pacientes.");        
+            System.out.println("6. Agrega.");
+            System.out.println("7. Elimina.");
             System.out.println("0. Salir.");
             System.out.print("Seleccione una opción: ");
-            int opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar la data
+            int opcion = sn.nextInt();
+            sn.nextLine(); // Limpiar la data
             
             switch (opcion) {
                case 1 -> 
@@ -68,6 +72,73 @@ public class Dia5 {
                    
                case 5 -> 
                    verPaciente();
+                   
+               case 6 -> {
+                   boolean opc = true;
+                   while(opc) {
+                        System.out.println("1. Agrega un empleado.");
+                        System.out.println("2. Agrega un paciente.");
+                        System.out.println("0. Salir.");
+                        System.out.print("Seleccione una opción: ");
+                        int opcion2 = sn.nextInt();
+                        sn.nextLine(); // Limpiar la data
+                        
+                        switch (opcion2) {
+                            case 1 -> {
+                                System.out.println("Inserte los datos del empleado que desea agregar: ");
+                                System.out.println("Ingrese el nombre del empleado: ");
+                                String nombre = sn.nextLine();
+                                System.out.println("Ingrese el cargo del empleado: ");
+                                String cargo = sn.nextLine();
+                                System.out.println("Ingrese la fecha de vinculación del empleado: ");
+                                String fecha_vinc = sn.nextLine();
+                                System.out.println("Ingrese el salario del empleado: ");
+                                String salario = sn.nextLine();
+                                System.out.println("Ingrese el teléfono del empleado: ");
+                                String tel = sn.nextLine();
+                                System.out.println("Ingrese la dirección del empleado: ");
+                                String direc = sn.nextLine();
+                                Personal empleadito = new Personal(sigIdEmpleado++, nombre, cargo, fecha_vinc, salario, tel, direc);
+                                empleados.add(empleadito); // Se agg el empleado a la lista
+                                System.out.println("Empleado registrado: " + empleadito.nombre);
+                            }
+                            
+                            case 2 -> {
+                                System.out.println("Inserte los datos del paciente que desea agregar: ");
+                                System.out.println("Ingrese el nombre del paciente: ");
+                                String nombre = sn.nextLine();
+                                System.out.println("Ingrese la fecha de nacimiento del paciente: ");
+                                String fecha_nac = sn.nextLine();
+                                System.out.println("Ingrese el hospital asociado del paciente: ");
+                                String hospAsoc = sn.nextLine();
+                                System.out.println("Ingrese la fecha de ingreso del paciente: ");
+                                String fecha_ing = sn.nextLine();
+                                Pacientes paciente = new Pacientes(sigIdPaciente++, nombre, fecha_nac, hospAsoc, fecha_ing);
+                                pacientico.add(paciente); // Se agg el empleado a la lista
+                                System.out.println("Paciente registrado: " + paciente.nombre);
+                            }
+                            
+                            case 0 -> {
+                                System.out.println("¡Has regresado al menú principal!"); // Sale del programa
+                                opc = false;                    
+                            }
+                            default -> System.out.println("Opción no válida.");
+                        }
+                   }
+                }
+               
+               case 7 -> {
+                   Scanner id = new Scanner(System.in);
+                   System.out.println("Inserte el id del paciente que desea eliminar: ");
+                   String NuevoId = id.nextLine();
+                   
+                   /*for (int i = 0; i < pacientico.size(); i++) {
+                       if(pacientico.remove(i).id.equals(NuevoId)){
+                       } else {
+                           
+                       }
+                   }*/
+               }
                             
                case 0 -> {
                     System.out.println("¡Fin de la consulta!"); // Sale del programa
