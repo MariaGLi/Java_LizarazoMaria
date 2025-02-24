@@ -80,31 +80,31 @@ public class Dia5 {
     
     private static void verHospitales() {
         for (Hospital hospi : hospitales) {
-            System.out.println(hospi); // Muestra cada concierto con sus detalles
+            System.out.println(hospi);
         }
     }
     
     private static void verPersonal() {
         for (Personal empleado : empleados) {
-            System.out.println(empleado); // Muestra cada concierto con sus detalles
+            System.out.println(empleado);
         }
     }
     
     private static void verDepartamento() {
         for (Departamentos depa : departamento) {
-            System.out.println(depa); // Muestra cada concierto con sus detalles
+            System.out.println(depa);
         }
     }
     
     private static void verPabellon() {
         for (Pabellon pabe : pabelloncito) {
-            System.out.println(pabe); // Muestra cada concierto con sus detalles
+            System.out.println(pabe);
         }
     }
     
     private static void verPaciente() {
         for (Pacientes paciente : pacientico) {
-            System.out.println(paciente); // Muestra cada concierto con sus detalles
+            System.out.println(paciente);
         }
     }
 }
