@@ -10,7 +10,7 @@ public class CuentaAhorro extends CuentaBancaria{
         this.tasaInteres = tasaInteres;
     }
 
-    public CuentaAhorro(double tasaInteres, String numeroCuenta, double saldo) {
+    public CuentaAhorro(double tasaInteres, String numeroCuenta, int saldo) {
         super(numeroCuenta, saldo);
         this.tasaInteres = tasaInteres;
     }
@@ -19,15 +19,16 @@ public class CuentaAhorro extends CuentaBancaria{
         return tasaInteres;
     }
 
-    public void setTasaInteres(double tasaInteres) {
+    public void setTasaInteres(int tasaInteres) {
         this.tasaInteres = tasaInteres;
     }
     
-    /*public void aplicarInteres(){
+    public void aplicarInteres(){
         saldo = saldo + (saldo * tasaInteres/100);
+        System.out.println("El interes aplicado es: " + saldo);
     }
     
-    public double verSaldo(){
-        return saldo;
-    }*/
+    public void verSaldo(){
+        System.out.println("El estado final de la cuenta es: N° de cuenta - " + numeroCuenta + " y saldo final de la cuenta - " + saldo);
+    }
 }

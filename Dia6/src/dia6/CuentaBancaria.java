@@ -1,8 +1,8 @@
 package dia6;
 
 public class CuentaBancaria {
-    private String numeroCuenta;
-    private double saldo;
+    protected String numeroCuenta;
+    protected double saldo;
 
     public CuentaBancaria() {
     }

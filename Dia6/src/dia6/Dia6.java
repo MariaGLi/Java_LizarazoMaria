@@ -30,8 +30,11 @@ public class Dia6 {
         
         // Ejercicio 3
         System.out.println("------- Ejercicio 3 -------");
-        CuentaBancaria cb = new CuentaBancaria("124D57MGLL\n", 17000000);
+        CuentaBancaria cb = new CuentaBancaria("124D57MGLL\n", 1700000);
         System.out.println(cb.getNumeroCuenta() + cb.getSaldo());
+        CuentaAhorro ca = new CuentaAhorro(5, "124D57MGLL", 1500000);
+        ca.aplicarInteres();
+        ca.verSaldo();
     }
     
 }
