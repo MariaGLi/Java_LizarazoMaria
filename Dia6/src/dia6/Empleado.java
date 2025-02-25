@@ -34,7 +34,7 @@ public class Empleado {
         if(salario > 0){
             this.salario = salario;
         } else{
-            System.out.println("El salario no es válido, debe ser mayor a cero.");
+            System.out.println("El salario no puede ser negativo.");
         }
     }
     public void mostrarInformacion(){
