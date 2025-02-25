@@ -9,7 +9,7 @@ public class Dia6 {
         //Ejercicio 1
         System.out.println("------- Ejercicio 1 -------");
         Empleado em = new Empleado(1, "María", 2500000);
-        em.setSalario(0);
+        em.setSalario(-1);
         em.mostrarInformacion();
         System.out.println(" ");
         
@@ -35,6 +35,5 @@ public class Dia6 {
         CuentaAhorro ca = new CuentaAhorro(5, "124D57MGLL", 1500000);
         ca.aplicarInteres();
         ca.verSaldo();
-    }
-    
+    }    
 }
