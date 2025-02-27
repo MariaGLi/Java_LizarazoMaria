@@ -15,9 +15,8 @@ public class PartidosLiga extends Partidos {
         this.jornada = jornada;
     }
 
-    /*@Override
-    public void mostrarPartLiga() {
-        System.out.println(jornada + equipoLocal); 
-    }*/
+    public String mostrarPartidoLiga(){
+       return "La jornada: " + jornada + " el equipo local " + equipoLocal + " el equipo visitante " + equipoVisitante +". Las cestas del equipo local son: " + cestasEqLocal + ". Las cestas del equipo visitante son: " + cestasEqVisit + " y la fecha del partido fue: ";
+    }
     
 }

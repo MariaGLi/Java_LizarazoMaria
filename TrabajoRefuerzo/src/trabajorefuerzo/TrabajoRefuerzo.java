@@ -7,20 +7,12 @@ import java.util.*;
 
 public class TrabajoRefuerzo {
     
-    static List<PartidosLiga> pL = new ArrayList<>();
-    static List<PartidosPlayOff> pO = new ArrayList<>();
+    
     
     public static void main(String[] args) {
         Scanner sn =new Scanner(System.in);
-        
-        //Datos Prueba
-        pL.add(new PartidosLiga(1, "Boston Celtics", "LA Lakers", 106, 99, true, "25/02/2025"));
-        pL.add(new PartidosLiga(2, "Chicago Bulls", "Toronto Raptors", 106, 99, true, "24/02/2025"));
-        
-        pO.add(new PartidosPlayOff("Octavos", "New York Knicks", "Dallas Mavericks", 120, 110, true, "22/02/2025"));
-        pO.add(new PartidosPlayOff("Cuartos", "Miami Heat", "Philadelphia 76ers", 99, 101, true, "23/02/2025"));
-        pO.add(new PartidosPlayOff("Final", "Utah Jazz", "Houston Rockets", 88, 107, true, "26/02/2025"));
-        
+        PartidosLiga partido = null;
+                
         boolean booleano = true;
         int opcion;
         while (booleano) {
@@ -38,8 +30,10 @@ public class TrabajoRefuerzo {
                 
                 switch(opcion){
                     case 1 -> {
+                        System.out.println("Registremos un partido de liga:");
+                        
                         Scanner numJor = new Scanner(System.in);
-                        System.out.print("Número de jornada: ");
+                        System.out.println("Número de jornada: ");
                         int jornada1 = numJor.nextInt();
                         
                         Scanner nombreEquipo1 = new Scanner(System.in);
@@ -47,37 +41,48 @@ public class TrabajoRefuerzo {
                         String equipoLocal1 = nombreEquipo1.nextLine();
                         
                         Scanner nombreEquipo2 = new Scanner(System.in);
-                        System.out.print("Nombre del equipo visitante: ");
+                        System.out.println("Nombre del equipo visitante: ");
                         String equipoVisitante1 = nombreEquipo2.nextLine();
                         
                         Scanner cesta = new Scanner(System.in);
-                        System.out.print("Cestas equipo local: ");
+                        System.out.println("Cestas equipo local: ");
                         int cestasEqLocal1 = cesta.nextInt();
                         
                         Scanner cesta2 = new Scanner(System.in);
-                        System.out.print("Cestas equipo visitante: ");
+                        System.out.println("Cestas equipo visitante: ");
                         int cestasEqVisit1 = cesta2.nextInt();
                                                 
                         Scanner fecha = new Scanner(System.in);
-                        System.out.print("Fecha del partido (dd/mm/yyyy): ");
+                        System.out.println("Fecha del partido (dd/mm/yyyy): ");
                         String fechaPartido1 = fecha.nextLine();
                                              
-                        pL.add(new PartidosLiga(jornada1, equipoLocal1, equipoVisitante1, cestasEqLocal1, cestasEqVisit1, booleano, fechaPartido1));
-                        System.out.println(pL);
+                        partido = new PartidosLiga(jornada1, equipoLocal1, equipoVisitante1, cestasEqLocal1, cestasEqVisit1, booleano, fechaPartido1);
+                        break;
+                        
                     }
                 
                 
                 
                     case 2 -> {
-                        System.out.println("Bienvenido Trainer");
+                        System.out.println("Registremos un partido de play off:");
+                        
                         break;
                     }
 
                     case 3 -> {
-                        System.out.println("Bienvenido Estudiante");
-
+                        System.out.println("Finalizar partido: ");
+                        break;
 
                     }
+                    
+                    case 4 -> {
+                        System.out.println("Ver información de un partido: ");
+                        System.out.println(partido.mostrarPartidoLiga());
+                        
+                        break;
+
+                    }
+                    
 
                     case 0 -> {
                         booleano = false;
