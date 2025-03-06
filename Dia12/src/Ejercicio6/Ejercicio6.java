@@ -4,6 +4,6 @@ package Ejercicio6;
 //una única responsabilidad.
 
 // Se crea la interfaz que nos permitirá enviar el correo.
-    public interface Ejercicio6 {
-        void Enviar(Contacto contacto, String cuerpoMensaje);
-    }
+public interface Ejercicio6 {
+    void Enviar(Contacto contacto, String cuerpoMensaje);
+}

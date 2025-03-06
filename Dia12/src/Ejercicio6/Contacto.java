@@ -1,5 +1,4 @@
 package Ejercicio6;
-// Pasamos el  codigo de C# a Java
 
 public class Contacto {
 // Se crean las entidades 

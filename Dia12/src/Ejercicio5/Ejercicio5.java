@@ -1,5 +1,4 @@
 package Ejercicio5;
-//Pasamos el código de C# a Java
 
 public class Ejercicio5 {
 
