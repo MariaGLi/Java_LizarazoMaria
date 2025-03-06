@@ -10,19 +10,20 @@ public class Game {
     private boolean endGame = false;
     // Declaramos una variable que nos controlará la finalización del juego.
     
-        public void init() {
-        enemies = new ArrayList<>();
-        enemies.add(new KnifeEnemy());
-        enemies.add(new GunEnemy());
-        // Este metodo nos permitira agg más enemigos a cualquiera de las dos clases.
-    }
+    public void init() {
+    enemies = new ArrayList<>();
+    enemies.add(new KnifeEnemy());
+    enemies.add(new GunEnemy());
+    // Este metodo nos permitira agg más enemigos a cualquiera de las dos clases.
+}
 
 // Este  metodo ejecutara el bucle While hasta que endGame sea verdadero
-    void run() {
+    public void run() {
         while (!endGame) {
             for (Enemy enemy : enemies) {
                 enemy.doAction();
             }
+            endGame = true;
         }
     }
     

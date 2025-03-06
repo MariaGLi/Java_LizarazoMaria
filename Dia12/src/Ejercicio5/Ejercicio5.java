@@ -1,7 +1,7 @@
 package Ejercicio5;
 
 public class Ejercicio5 {
-
+   
     public interface IOadEscritura { 
 //Se separa la interfaz y se declara una interfaz solo para escritura.
         void Insert(Object entity);
