@@ -1,10 +1,11 @@
-package dia18;
+package persistenciadedatos;
 /**
  *@author María Lizarazo
  */
-public class Dia18 {
+public class PersistenciaDeDatos {
 
     public static void main(String[] args) {
+        
         
     }
     
