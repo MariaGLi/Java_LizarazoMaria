@@ -1,0 +1,3 @@
+
+Persona,1,María,25
+Producto,1,CD Michael Jackson,100000

@@ -1,11 +1,6 @@
 package ArchivoObjeto;
 
-import static ArchivoObjeto.CRUDPersistencia.actualizarPersona;
-import static ArchivoObjeto.CRUDPersistencia.agregarPersona;
-import static ArchivoObjeto.CRUDPersistencia.cargarDatos;
-import static ArchivoObjeto.CRUDPersistencia.eliminarPersona;
-import static ArchivoObjeto.CRUDPersistencia.guardarDatos;
-import static ArchivoObjeto.CRUDPersistencia.listarPersonas;
+import static ArchivoObjeto.CRUDPersistencia.*;
 import java.util.Scanner;
 
 public class main {
