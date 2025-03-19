@@ -21,17 +21,24 @@ public class UsuarioControlador {
     }
 
     public void iniciar(){
-        while (true){
+        Scanner sn = new Scanner(System.in);
+        
+        boolean salir = false;
+        
+        while (!salir){
             System.out.println("Menu principal ");
             System.out.println("1. Crear usuario");
-            System.out.println(":");
+            System.out.println("2. Ver usuarios");
+            System.out.println("3. Actualizar usuario");
+            System.out.println("4. Eliminar usuario");
             int opcion = scanner.nextInt();
             switch (opcion){
-                case 1:
+                case 1 -> {
                     Usuario nuevoUsuario = usuarioVista.agregarUsuario();
                     usuarioDAO.insertar(nuevoUsuario);
                     System.out.println("Usuario Agregado!");
                     break;
+                }
             }
         }
     }

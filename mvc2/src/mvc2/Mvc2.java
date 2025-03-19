@@ -1,16 +1,18 @@
 
 package mvc2;
 
+import controlador.UsuarioControlador;
 import modelo.UsuarioDAO;
-import modelo.Usuario;
+import vista.UsuarioVista;
 
 public class Mvc2 {
 
     public static void main(String[] args) {
-        UsuarioDAO usuariodao = new UsuarioDAO();
-        Usuario usuario = new Usuario("lolo", "lolo@gmail.com");
+        UsuarioDAO usuaridao = new UsuarioDAO();
+        UsuarioVista usuariovista = new UsuarioVista();
+        UsuarioControlador usuariocontrolador =new UsuarioControlador(usuaridao, usuariovista);
         
-        usuariodao.insertar(usuario);
+        usuariocontrolador.iniciar();        
     }
     
 }

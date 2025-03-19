@@ -6,7 +6,7 @@ import java.util.List;
 
 public class UsuarioDAO {
 
-    String URL = "mysql://be6r9fm52xjw6nnyzwqj-mysql.services.clever-cloud.com:3306/be6r9fm52xjw6nnyzwqj";
+    String URL = "jdbc:mysql://be6r9fm52xjw6nnyzwqj-mysql.services.clever-cloud.com:3306/be6r9fm52xjw6nnyzwqj";
     String USUARIO = "uqgspyzbzgjtm4uq";
     String PASSWORD = "poWKSbF1RqTjIRHZkHdl";
 
