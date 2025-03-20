@@ -1,4 +1,3 @@
-
 package mvc2;
 
 import controlador.UsuarioControlador;
@@ -13,6 +12,5 @@ public class Mvc2 {
         UsuarioControlador usuariocontrolador =new UsuarioControlador(usuaridao, usuariovista);
         
         usuariocontrolador.iniciar();        
-    }
-    
+    }    
 }
